@@ -20,14 +20,8 @@ describe.skip('GitHub regression test', () => {
         browser.pause(2000)
 
         $('div.codesearch-results ul li a').click();
-        if(browser.getUrl().includes("webdriverio"))
-        {
-            console.log("********************Search was Correct********************");
-        }
-        else
-        {
-            console.log("--------------------Search was InCorrect--------------------");
-        }
+        expect(browser).toHaveUrl('webdriverio', {'containing': true});
+        
         browser.pause(2000)
 
     })

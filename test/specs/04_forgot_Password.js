@@ -20,26 +20,18 @@ describe.skip('GitHub regression test', () => {
         resetPage.emailInput.setValue(wrongEmail);
         browser.pause(2000)
         resetPage.sendButton.click();
-        browser.waitUntil(
-            () => resetPage.errorMessage.isDisplayed(),
-            {
-                timeout: 5000,
-                timeoutMsg: 'Error message not displayed(wrong email)'
-            }
-        );
+        browser.pause(2000)
+        expect(resetPage.errorMessage).toBeDisplayed();
+        
         browser.pause(2000)
         resetPage.closeErrorButton.click();
 
         resetPage.emailInput.setValue(wrongText);
         browser.pause(2000)
         resetPage.sendButton.click();
-        browser.waitUntil(
-            () => resetPage.errorMessage.isDisplayed(),
-            {
-                timeout: 5000,
-                timeoutMsg: 'Error message not displayed(plain text)'
-            }
-        );
+        browser.pause(2000)
+        expect(resetPage.errorMessage).toBeDisplayed();
+
         browser.pause(2000)
         resetPage.closeErrorButton.click();
         browser.pause(2000)
@@ -56,14 +48,9 @@ describe.skip('GitHub regression test', () => {
         resetPage.emailInput.setValue(helper.testUserData.testEmail);
         browser.pause(2000)
         resetPage.sendButton.click();
-
-        browser.waitUntil(
-            () => resetPage.returnToSigninButton.isDisplayed(),
-            {
-                timeout: 5000,
-                timeoutMsg: 'Reset not successfull'
-            }
-        );
+        browser.pause(2000)
+        
+        expect(resetPage.returnToSigninButton).toBeDisplayed();
         browser.pause(2000)
 
     })

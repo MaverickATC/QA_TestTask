@@ -18,27 +18,15 @@ describe.skip('GitHub regression test', () => {
         signinPage.signinButton.click();
         browser.pause(2000)
 
-        if(browser.getTitle() === "GitHub")
-        {
-            $('.Header-item.mr-0 summary.Header-link').click();
-            browser.pause(2000)
-            const userName = $('a.user-profile-link strong')
-            userName.isDisplayed();
-            if(userName.getText() === helper.testUserData.userName)
-            {
-                console.log("Signed In Successfully")
-                browser.pause(2000)
-            }
-            else
-            {
-                console.log("Sign In not successfull by username")
-                browser.pause(2000)
-            }
-        }else
-        {
-            console.log("Sign In not successfull by page")
-            browser.pause(2000)
-        }
+        expect(browser).toHaveUrl(mainPage.url);
+        browser.pause(1000)
+        $('.Header-item.mr-0 summary.Header-link').click();
+        browser.pause(2000)
+        const userName = $('a.user-profile-link strong');
+        expect(userName).toBeDisplayed();
+        browser.pause(1000)
+        expect(userName).toHaveText(helper.testUserData.userName);
+        browser.pause(1000)
 
     })
 })

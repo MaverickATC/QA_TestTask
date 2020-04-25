@@ -18,13 +18,10 @@ describe.skip('GitHub regression test', () => {
 
         mainPage.lowerSignupButton.click();
         
-        if(browser.getUrl() === joinPage.url)
-        {
-            console.log('Page changed successfully')
-        }
-        browser.pause(2000)
-        joinPage.verifyAccountHeader.isDisplayed();
-        browser.pause(2000)
+        expect(browser).toHaveUrl(joinPage.url);
+        browser.pause(1000)
+        expect(joinPage.verifyAccountHeader).toBeDisplayed();
+        browser.pause(1000)
 
     })
 })

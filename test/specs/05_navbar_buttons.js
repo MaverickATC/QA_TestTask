@@ -14,19 +14,19 @@ describe.skip('GitHub regression test', () => {
 
         navBar.navbarWhyGHDropdownButton.moveTo();
         browser.pause(2000)
-        navBar.navbarWhyGHDropdown.isDisplayed();
+        expect(navBar.navbarWhyGHDropdown).toBeDisplayed();
         browser.pause(2000)
         mainPage.upperSignupButton.moveTo();
         
         navBar.navbarExploreDropdownButton.moveTo();
         browser.pause(2000)
-        navBar.navbarExploreDropdown.isDisplayed();
+        expect(navBar.navbarExploreDropdown).toBeDisplayed();
         browser.pause(2000)
         mainPage.upperSignupButton.moveTo();
         
         navBar.navbarPricingDropdownButton.moveTo();
         browser.pause(2000)
-        navBar.navbarPricingDropdown.isDisplayed();
+        expect(navBar.navbarPricingDropdown).toBeDisplayed();
         browser.pause(2000)
         mainPage.upperSignupButton.moveTo();
         
@@ -61,7 +61,7 @@ describe.skip('GitHub regression test', () => {
         browser.pause(1000)
         $('nav[role="navigation"] a[href="/topics"]').click();
         browser.pause(1000)
-        $('//h1[contains(text(),"Topics")]').isDisplayed();
+        expect($('//h1[contains(text(),"Topics")]')).toBeDisplayed();
         browser.pause(2000)
 
     }) 
